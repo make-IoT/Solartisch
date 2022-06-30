@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<cb:CODEBLOCKS xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://education.mit.edu/openblocks/ns http://education.mit.edu/openblocks/codeblocks.xsd" xmlns:cb="http://education.mit.edu/openblocks/ns">
+<Pages collapsible-pages="yes" drawer-with-page="yes">
+<Page page-color="128 128 128" page-drawer="Main" page-infullview="yes" page-name="Main" page-width="1440">
+<PageBlocks>
+<Block genus-name="program" id="191">
+<Location>
+<X>316</X>
+<Y>318</Y>
+</Location>
+<Sockets num-sockets="2">
+<BlockConnector con-block-id="232" connector-kind="socket" connector-type="cmd" init-type="cmd" label="setup" position-type="single"/>
+<BlockConnector con-block-id="456" connector-kind="socket" connector-type="cmd" init-type="cmd" label="loop" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="sendShelly" id="456">
+<Location>
+<X>464</X>
+<Y>411</Y>
+</Location>
+<BeforeBlockId>191</BeforeBlockId>
+<AfterBlockId>259</AfterBlockId>
+<Sockets num-sockets="2">
+<BlockConnector con-block-id="457" connector-kind="socket" connector-type="string" init-type="string" label="Server" position-type="single"/>
+<BlockConnector con-block-id="458" connector-kind="socket" connector-type="boolean" init-type="boolean" label="Wert" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="setter_variable_number" id="259">
+<Location>
+<X>464</X>
+<Y>465</Y>
+</Location>
+<BeforeBlockId>456</BeforeBlockId>
+<AfterBlockId>242</AfterBlockId>
+<Sockets num-sockets="2">
+<BlockConnector con-block-id="260" connector-kind="socket" connector-type="number" init-type="number" label="variable" position-type="single"/>
+<BlockConnector con-block-id="256" connector-kind="socket" connector-type="number" init-type="number" label="value" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="serial_print" id="242">
+<Label>serial print</Label>
+<Location>
+<X>464</X>
+<Y>555</Y>
+</Location>
+<BeforeBlockId>259</BeforeBlockId>
+<AfterBlockId>453</AfterBlockId>
+<Sockets num-sockets="2">
+<BlockConnector con-block-id="243" connector-kind="socket" connector-type="string" init-type="string" label="" position-type="single"/>
+<BlockConnector con-block-id="248" connector-kind="socket" connector-type="boolean" init-type="boolean" label="new line" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="iot_matrixwing" id="453">
+<Location>
+<X>464</X>
+<Y>609</Y>
+</Location>
+<BeforeBlockId>242</BeforeBlockId>
+<AfterBlockId>235</AfterBlockId>
+<Sockets num-sockets="1">
+<BlockConnector con-block-id="455" connector-kind="socket" connector-type="string" init-type="string" label="Text" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="sendThingspeak" id="235">
+<Location>
+<X>464</X>
+<Y>665</Y>
+</Location>
+<BeforeBlockId>453</BeforeBlockId>
+<AfterBlockId>219</AfterBlockId>
+<Sockets num-sockets="10">
+<BlockConnector con-block-id="236" connector-kind="socket" connector-type="string" init-type="string" label="server" position-type="single"/>
+<BlockConnector con-block-id="237" connector-kind="socket" connector-type="string" init-type="string" label="API-key" position-type="single"/>
+<BlockConnector con-block-id="264" connector-kind="socket" connector-type="number" init-type="number" label="field 1" position-type="single"/>
+<BlockConnector connector-kind="socket" connector-type="number" init-type="number" label="field 2" position-type="single"/>
+<BlockConnector connector-kind="socket" connector-type="number" init-type="number" label="field 3" position-type="single"/>
+<BlockConnector connector-kind="socket" connector-type="number" init-type="number" label="field 4" position-type="single"/>
+<BlockConnector connector-kind="socket" connector-type="number" init-type="number" label="field 5" position-type="single"/>
+<BlockConnector connector-kind="socket" connector-type="number" init-type="number" label="field 6" position-type="single"/>
+<BlockConnector connector-kind="socket" connector-type="number" init-type="number" label="field 7" position-type="single"/>
+<BlockConnector connector-kind="socket" connector-type="number" init-type="number" label="field 8" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="delay" id="219">
+<Location>
+<X>464</X>
+<Y>911</Y>
+</Location>
+<BeforeBlockId>235</BeforeBlockId>
+<Sockets num-sockets="1">
+<BlockConnector con-block-id="220" connector-kind="socket" connector-type="number" init-type="number" label="ms" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="number" id="220">
+<Label>60000</Label>
+<Location>
+<X>598</X>
+<Y>914</Y>
+</Location>
+<Comment>
+<Text>alle 60 sec 
+messen</Text>
+<Location>
+<X>711</X>
+<Y>853</Y>
+</Location>
+<BoxSize>
+<Width>150</Width>
+<Height>100</Height>
+</BoxSize>
+</Comment>
+<Plug>
+<BlockConnector con-block-id="219" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="mirror"/>
+</Plug>
+</Block>
+<Block genus-name="variable_number" id="264">
+<Label>Verbrauch</Label>
+<Location>
+<X>642</X>
+<Y>716</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="235" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="mirror"/>
+</Plug>
+</Block>
+<Block genus-name="apikey" id="237">
+<Label>YOUR WRITE KEY</Label>
+<Location>
+<X>642</X>
+<Y>692</Y>
+</Location>
+<Comment>
+<Text>API Key des
+ThingSpeak 
+Kanals</Text>
+<Location>
+<X>822</X>
+<Y>744</Y>
+</Location>
+<BoxSize>
+<Width>150</Width>
+<Height>100</Height>
+</BoxSize>
+</Comment>
+<Plug>
+<BlockConnector con-block-id="235" connector-kind="plug" connector-type="string" init-type="string" label="" position-type="single"/>
+</Plug>
+</Block>
+<Block genus-name="host" id="236">
+<Label>api.thingspeak.com</Label>
+<Location>
+<X>642</X>
+<Y>668</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="235" connector-kind="plug" connector-type="string" init-type="string" label="" position-type="single"/>
+</Plug>
+</Block>
+<Block genus-name="glue_sn" id="455">
+<Location>
+<X>644</X>
+<Y>612</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="453" connector-kind="plug" connector-type="string" init-type="string" label="" position-type="single"/>
+</Plug>
+<Sockets num-sockets="1">
+<BlockConnector con-block-id="263" connector-kind="socket" connector-type="number" init-type="number" label="" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="variable_number" id="263">
+<Label>Verbrauch</Label>
+<Location>
+<X>728</X>
+<Y>612</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="455" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="mirror"/>
+</Plug>
+</Block>
+<Block genus-name="true" id="248">
+<Label>true</Label>
+<Location>
+<X>626</X>
+<Y>582</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="242" connector-kind="plug" connector-type="boolean" init-type="boolean" label="" position-type="mirror"/>
+</Plug>
+</Block>
+<Block genus-name="message" id="243">
+<Label>Energie gemessen (W):</Label>
+<Location>
+<X>626</X>
+<Y>558</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="242" connector-kind="plug" connector-type="string" init-type="string" label="" position-type="single"/>
+</Plug>
+<Sockets num-sockets="1">
+<BlockConnector con-block-id="244" connector-kind="socket" connector-type="string" init-type="string" label="" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="glue_sn" id="244">
+<Label>glue</Label>
+<Location>
+<X>802</X>
+<Y>558</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="243" connector-kind="plug" connector-type="string" init-type="string" label="" position-type="single"/>
+</Plug>
+<Sockets num-sockets="1">
+<BlockConnector con-block-id="262" connector-kind="socket" connector-type="number" init-type="number" label="" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="variable_number" id="262">
+<Label>Verbrauch</Label>
+<Location>
+<X>858</X>
+<Y>558</Y>
+</Location>
+<Comment>
+<Text>gemessener
+Verbrauch
+in Watt (W)</Text>
+<Location>
+<X>882</X>
+<Y>611</Y>
+</Location>
+<BoxSize>
+<Width>150</Width>
+<Height>100</Height>
+</BoxSize>
+</Comment>
+<Plug>
+<BlockConnector con-block-id="244" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="mirror"/>
+</Plug>
+</Block>
+<Block genus-name="getShelly" id="256">
+<Location>
+<X>676</X>
+<Y>492</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="259" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="single"/>
+</Plug>
+<Sockets num-sockets="2">
+<BlockConnector con-block-id="257" connector-kind="socket" connector-type="string" init-type="string" label="server" position-type="single"/>
+<BlockConnector con-block-id="258" connector-kind="socket" connector-type="number" init-type="number" label="Val" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="ShellyVectorPower" id="258">
+<Label>Power [W]</Label>
+<Location>
+<X>832</X>
+<Y>516</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="256" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="single"/>
+</Plug>
+</Block>
+<Block genus-name="host" id="257">
+<Label>192.168.178.71</Label>
+<Location>
+<X>832</X>
+<Y>492</Y>
+</Location>
+<Comment>
+<Text>IP Adresse
+des Shelly Plug
+im Heim-WLAN</Text>
+<Location>
+<X>999</X>
+<Y>404</Y>
+</Location>
+<BoxSize>
+<Width>150</Width>
+<Height>100</Height>
+</BoxSize>
+</Comment>
+<Plug>
+<BlockConnector con-block-id="256" connector-kind="plug" connector-type="string" init-type="string" label="" position-type="single"/>
+</Plug>
+</Block>
+<Block genus-name="variable_number" id="260">
+<Label>Verbrauch</Label>
+<Location>
+<X>676</X>
+<Y>468</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="259" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="mirror"/>
+</Plug>
+</Block>
+<Block genus-name="digital-high" id="458">
+<Label>HIGH</Label>
+<Location>
+<X>622</X>
+<Y>438</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="456" connector-kind="plug" connector-type="boolean" init-type="boolean" label="" position-type="mirror"/>
+</Plug>
+</Block>
+<Block genus-name="host" id="457">
+<Label>192.168.178.71</Label>
+<Location>
+<X>622</X>
+<Y>414</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="456" connector-kind="plug" connector-type="string" init-type="string" label="" position-type="single"/>
+</Plug>
+</Block>
+<Block genus-name="connectWLANAP" id="232">
+<Location>
+<X>465</X>
+<Y>326</Y>
+</Location>
+<BeforeBlockId>191</BeforeBlockId>
+<Sockets num-sockets="2">
+<BlockConnector con-block-id="233" connector-kind="socket" connector-type="string" init-type="string" label="netname" position-type="single"/>
+<BlockConnector con-block-id="234" connector-kind="socket" connector-type="string" init-type="string" label="password" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="passwort" id="234">
+<Label>YOUR PWD</Label>
+<Location>
+<X>643</X>
+<Y>353</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="232" connector-kind="plug" connector-type="string" init-type="string" label="" position-type="single"/>
+</Plug>
+</Block>
+<Block genus-name="ssid" id="233">
+<Label>YOUR SSID</Label>
+<Location>
+<X>643</X>
+<Y>329</Y>
+</Location>
+<Comment>
+<Text>WLAN Zugang zum
+Heim-WLAN
+
+SSID/Password</Text>
+<Location>
+<X>864</X>
+<Y>292</Y>
+</Location>
+<BoxSize>
+<Width>150</Width>
+<Height>100</Height>
+</BoxSize>
+</Comment>
+<Plug>
+<BlockConnector con-block-id="232" connector-kind="plug" connector-type="string" init-type="string" label="" position-type="single"/>
+</Plug>
+</Block>
+</PageBlocks>
+</Page>
+</Pages>
+</cb:CODEBLOCKS>
